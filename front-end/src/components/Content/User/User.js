@@ -5,13 +5,14 @@ import Pagination from "../../Content/Pagination/Pagination";
 import React, { useState, useEffect } from "react";
 
 export default function User() {
-  const [data, setData] = useState([]);
-  const [page] = useState(1);
-  const token = "10|wgcLSkQmGweHRgFoPgK51swtTsxS1w2uvxFj2pMj";
+  const [users, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const token = "39|hYkEM4tObdm3unyFgY9N5gWGdz8BkiyCAzy2L0uO";
 
   useEffect(() => {
     async function fetchData() {
-      const url = API.USER.GET;
+      const url = `${API.USER.GET}?page=${page}`;
+      // console.log(url);
       const res = await fetch(url, {
         method: "GET",
         headers: {
@@ -22,15 +23,15 @@ export default function User() {
       });
 
       const users = await res.json();
-      console.log(users);
-      // setData(users.data);
+      // console.log(users.data);
+      setData(users.data);
     }
 
     fetchData();
   }, [page]);
 
   function onPageChange(page) {
-    console.log(page);
+    setPage(page);
   }
 
   return (
@@ -47,20 +48,20 @@ export default function User() {
             <th class="status_Area">Status</th>
             <th>Title</th>
           </tr>
-          {data.map((item) => {
+          {users.map((user, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td class="first_Area">
                   <input
                     type="checkbox"
-                    checked={item.checkbox}
+                    checked={user.checkbox}
                     name="scales"
                   />
                 </td>
-                <td>{item.title}</td>
-                <td>{item.username}</td>
-                <td>{item.emali}</td>
-                <td>{item.status}</td>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.email_verified_at}</td>
                 <td>
                   <a href="#">Publish</a>
                   <a href="#">Edit</a>
@@ -71,7 +72,7 @@ export default function User() {
           })}
         </tbody>
       </table>
-      <Pagination page={page} onPageChange={onPageChange} />
+      <Pagination page={page} onChange={onPageChange} />
     </>
   );
 
