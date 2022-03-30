@@ -36,6 +36,11 @@ export default function Pagination(props) {
             <span>4</span>
           </a>
         </li>
+        <li className="next">
+          <a onClick={() => onPageChange(4)}>
+            <span>≫</span>
+          </a>
+        </li>
       </ul>
     </div>
   );
