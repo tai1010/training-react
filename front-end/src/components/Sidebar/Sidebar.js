@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.scss";
-
+import { Link } from "react-router-dom";
 export default function Sidebar() {
   return (
     <div className="side-bar">
       <div className="side-bar-item">
-        <a href="#">
+        <a>
           <img src="./images/Dashbord.png" />
           <span>Dashboard</span>
         </a>
