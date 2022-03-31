@@ -8,8 +8,8 @@ td {
 }
 
 table {
-    border-collapse: collapse; 
-    width: 100%; 
+    border-collapse: collapse;
+    width: 100%;
     background-color: #fff;
     margin: 10px;
 }
@@ -42,4 +42,7 @@ td a {
     padding-right: 5px;
     color: #0d6efd;
     text-decoration: none;
+}
+.MuiPagination-ul {
+    justify-content: flex-end;
 }

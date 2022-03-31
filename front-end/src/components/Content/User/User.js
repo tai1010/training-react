@@ -1,13 +1,14 @@
 // import React from "react";
 import "./style.scss";
 import { API } from "../../../config/constant";
-import Pagination from "../../Content/Pagination/Pagination";
+import Pagination from "@material-ui/lab/Pagination";
+import { withStyles } from "@material-ui/core/styles";
 import React, { useState, useEffect } from "react";
 
 export default function User() {
   const [users, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const token = "";
+  const token = "39|hYkEM4tObdm3unyFgY9N5gWGdz8BkiyCAzy2L0uO";
 
   useEffect(() => {
     async function fetchData() {
@@ -30,28 +31,28 @@ export default function User() {
     fetchData();
   }, [page]);
 
-  function onPageChange(page) {
-    setPage(page);
-  }
+  // function onChange(page) {
+  //   setPage(page);
+  // }
 
   return (
     <>
       <table>
         <tbody>
           <tr>
-            <th class="checkbox-Area">
+            <th className="checkbox-Area">
               <input type="checkbox" name="scales" />
             </th>
-            <th class="title_Area">Title</th>
-            <th class="username_Area">UserName</th>
-            <th class="email_Area">Email</th>
-            <th class="status_Area">Status</th>
+            <th className="title_Area">Title</th>
+            <th className="username_Area">UserName</th>
+            <th className="email_Area">Email</th>
+            <th className="status_Area">Status</th>
             <th>Title</th>
           </tr>
           {users.map((user, index) => {
             return (
               <tr key={index}>
-                <td class="first_Area">
+                <td className="first_Area">
                   <input
                     type="checkbox"
                     checked={user.checkbox}
@@ -72,7 +73,15 @@ export default function User() {
           })}
         </tbody>
       </table>
-      <Pagination page={page} onChange={onPageChange} />
+      <div className="test">
+        <Pagination
+          style={{ justifyContent: "flex-end" }}
+          count={10}
+          color="primary"
+          onChange={(e, page) => setPage(page)}
+          page={page}
+        />
+      </div>
     </>
   );
 

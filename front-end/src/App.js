@@ -6,7 +6,6 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Breadcrumb from "./components/Content/Breadcrumb/Breadcrumb";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Pagination from "./components/Content/Pagination/Pagination";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -24,9 +23,6 @@ function App() {
                 <Route path="/Users" element={<User />}></Route>
               </Routes>
             </BrowserRouter>
-          </div>
-          <div className="sub-container-item">
-            <Pagination />
           </div>
         </div>
       </div>

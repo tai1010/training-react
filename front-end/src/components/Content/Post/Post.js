@@ -9,7 +9,7 @@ export default function Post() {
     },
   ];
   const item = cards.map((card) => (
-    <div class="item">
+    <div className="item">
       <img src={"./images/card-image.png"} class="card-image" />
       <h3 className="title">{card.title}</h3>
       <p className="card-text">{card.text}</p>
@@ -21,5 +21,5 @@ export default function Post() {
     items.push(item);
   }
 
-  return <div class="items">{items}</div>;
+  return <div className="items">{items}</div>;
 }
