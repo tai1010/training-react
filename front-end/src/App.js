@@ -17,12 +17,10 @@ function App() {
         <div className="sub-container">
           <Breadcrumb />
           <div className="sub-container-item">
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Post />}></Route>
-                <Route path="/Users" element={<User />}></Route>
-              </Routes>
-            </BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Post />}></Route>
+              <Route path="/Users" element={<User />}></Route>
+            </Routes>
           </div>
         </div>
       </div>

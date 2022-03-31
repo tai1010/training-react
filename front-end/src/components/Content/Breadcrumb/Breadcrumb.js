@@ -1,15 +1,16 @@
 import React from "react";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 export default function Breadcrumb() {
   return (
     <div className="breadcrumb">
       <img src="./images/icon.png" />
-      <a href="/">Home</a>
+      <Link to="/">Home</Link>
       <span>/</span>
-      <a href="/Users" className="breadcrumb-item">
+      <Link to="/" className="breadcrumb-item">
         Users
-      </a>
+      </Link>
     </div>
   );
 }
