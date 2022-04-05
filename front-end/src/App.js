@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Breadcrumb from "./components/Content/Breadcrumb/Breadcrumb";
 import Sidebar from "./components/Sidebar/Sidebar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
