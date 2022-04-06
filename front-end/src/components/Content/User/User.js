@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 export default function User() {
   const [users, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const token = "39|hYkEM4tObdm3unyFgY9N5gWGdz8BkiyCAzy2L0uO";
+  const token = "";
 
   useEffect(() => {
     async function fetchData() {
