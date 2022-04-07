@@ -3,6 +3,8 @@ import "./style.scss";
 import { API } from "../../../config/constant";
 import Pagination from "@material-ui/lab/Pagination";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Layouts from "../../Layouts/Layouts";
 
 export default function User() {
   const [users, setData] = useState([]);
@@ -12,7 +14,6 @@ export default function User() {
   useEffect(() => {
     async function fetchData() {
       const url = `${API.USER.GET}?page=${page}`;
-      // console.log(url);
       const res = await fetch(url, {
         method: "GET",
         headers: {
@@ -23,64 +24,61 @@ export default function User() {
       });
 
       const users = await res.json();
-      // console.log(users.data);
       setData(users.data);
     }
 
     fetchData();
   }, [page]);
 
-  // function onChange(page) {
-  //   setPage(page);
-  // }
-
   return (
     <>
-      <table>
-        <tbody>
-          <tr>
-            <th className="checkbox-Area">
-              <input type="checkbox" name="scales" />
-            </th>
-            <th className="title_Area">Title</th>
-            <th className="username_Area">UserName</th>
-            <th className="email_Area">Email</th>
-            <th className="status_Area">Status</th>
-            <th>Title</th>
-          </tr>
-          {users.map((user, index) => {
-            return (
-              <tr key={index}>
-                <td className="first_Area">
-                  <input
-                    type="checkbox"
-                    checked={user.checkbox}
-                    name="scales"
-                  />
-                </td>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.email_verified_at}</td>
-                <td>
-                  <a href="#">Publish</a>
-                  <a href="#">Edit</a>
-                  <a href="#">Delete</a>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className="test">
-        <Pagination
-          style={{ justifyContent: "flex-end" }}
-          count={10}
-          color="primary"
-          onChange={(e, page) => setPage(page)}
-          page={page}
-        />
-      </div>
+      <Layouts>
+        <table>
+          <tbody>
+            <tr>
+              <th className="checkbox-Area">
+                <input type="checkbox" name="scales" />
+              </th>
+              <th className="title_Area">Title</th>
+              <th className="username_Area">UserName</th>
+              <th className="email_Area">Email</th>
+              <th className="status_Area">Status</th>
+              <th>Title</th>
+            </tr>
+            {users.map((user, index) => {
+              return (
+                <tr key={index}>
+                  <td className="first_Area">
+                    <input
+                      type="checkbox"
+                      checked={user.checkbox}
+                      name="scales"
+                    />
+                  </td>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.email_verified_at}</td>
+                  <td>
+                    <Link to="/">Publish</Link>
+                    <Link to="/">Edit</Link>
+                    <Link to="/">Delete</Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div>
+          <Pagination
+            style={{ justifyContent: "flex-end" }}
+            count={10}
+            color="primary"
+            onChange={(e, page) => setPage(page)}
+            page={page}
+          />
+        </div>
+      </Layouts>
     </>
   );
 

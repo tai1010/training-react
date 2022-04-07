@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.scss";
+import Layouts from "../../Layouts/Layouts";
+import Card from "../../../assets/images/Card.png";
 
 export default function Post() {
   const cards = [
@@ -10,7 +12,7 @@ export default function Post() {
   ];
   const item = cards.map((card) => (
     <div className="item">
-      <img src={"./images/card-image.png"} class="card-image" />
+      <img src={Card} alt="Card" class="card-image" />
       <h3 className="title">{card.title}</h3>
       <p className="card-text">{card.text}</p>
     </div>
@@ -21,5 +23,9 @@ export default function Post() {
     items.push(item);
   }
 
-  return <div className="items">{items}</div>;
+  return (
+    <Layouts>
+      <div className="items">{items}</div>
+    </Layouts>
+  );
 }

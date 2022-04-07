@@ -1,13 +1,20 @@
 import React from "react";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import Dashboard from "../../assets/images/Dashbord.png";
+import User from "../../assets/images/User.png";
+import Games from "../../assets/images/Game.png";
+import Categories from "../../assets/images/Categories.png";
+import Document from "../../assets/images/Document.png";
+import Setting from "../../assets/images/Setting.png";
+import Location from "../../assets/images/Location.png";
 
 export default function Sidebar() {
   return (
     <div className="side-bar">
       <div className="side-bar-item">
         <Link to="/">
-          <img src="./images/Dashbord.png" />
+          <img src={Dashboard} alt="Dashboard" />
           <span>Dashboard</span>
         </Link>
       </div>
@@ -15,19 +22,19 @@ export default function Sidebar() {
         <p>Main</p>
         <div className="side-bar-item is-active">
           <Link to="/Users">
-            <img src="./images/3User.png" />
+            <img src={User} alt="User" />
             <span>Users</span>
           </Link>
         </div>
         <div className="side-bar-item">
           <Link to="/">
-            <img src="./images/Game.png" />
+            <img src={Games} alt="Games" />
             <span>Posts</span>
           </Link>
         </div>
         <div className="side-bar-item">
           <Link to="">
-            <img src="./images/Categories.png" />
+            <img src={Categories} alt="Categories" />
             <span>Categories</span>
           </Link>
         </div>
@@ -36,19 +43,19 @@ export default function Sidebar() {
         <p>Setting</p>
         <div className="side-bar-item">
           <Link to="">
-            <img src="./images/Document.png" />
+            <img src={Document} alt="Document" />
             <span>Profile</span>
           </Link>
         </div>
         <div className="side-bar-item">
           <Link to="">
-            <img src="./images/Setting.png" />
+            <img src={Setting} alt="Setting" />
             <span>Roles</span>
           </Link>
         </div>
         <div className="side-bar-item">
           <Link to="">
-            <img src="./images/Location.png" />
+            <img src={Location} alt="Location" />
             <span>Maps</span>
           </Link>
         </div>
