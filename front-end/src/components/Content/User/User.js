@@ -9,7 +9,7 @@ import Layouts from "../../Layouts/Layouts";
 export default function User() {
   const [users, setData] = useState([]);
   const [page, setPage] = useState(1);
-  const token = "";
+  const token = "39|hYkEM4tObdm3unyFgY9N5gWGdz8BkiyCAzy2L0uO";
 
   useEffect(() => {
     async function fetchData() {

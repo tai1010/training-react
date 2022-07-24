@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+#追記
+db
 # testing
 /coverage
 
